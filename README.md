@@ -1,3 +1,3 @@
-# jenkins
-asdad
-#sdasd
+# 0.  Jenkins Image Build
+  ## /jenkins/Dockerfile
+  
