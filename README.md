@@ -22,7 +22,7 @@
 >> Dood 방식으로 Container를 제작 하여도 Container 는 Docker 명령어를 알지 못한다. 따라서 추가적으로 이를 설치해주는 Dockerfile을 빌드한다
 
 
-##### > ToDo
+###  < ToDo >
  - [x] change container os Debian -> alpine
 
 ---
@@ -44,10 +44,11 @@
 > + Jenkins memory
 >> container 는 run 될때 default 로 pc의 메모리 전체를 할당 받는다. 뿐더러 , jenkins 는 별다른 설정이 없다면 jenkins의 권장사양인 16G 까지 메모리를 사용한다. 
 >> ondemand 방식인 aws 에서 사용하기 힘들기 때문에 jenkins의 실행 환경의 memory 를 제한해야한다.
+
 >> https://community.jenkins.io/t/high-memory-usage-jenkins-in-docker/4909
 >   + using Docker
     
-    docke run --name {container_name} -m {meory_size} {image_name}
+    docker run --name {container_name} -m {meory_size} {image_name}
 >   + install on Linux
     
     vi /etc/default/jenkins
@@ -65,7 +66,7 @@
 
 > 해당 Dockerfile 은 server폴더를 Docker Image 로 build 하고 Flask 서버를 실행시킨다.     
 
-##### > ToDo
+### < ToDo >
  - [x] change container os Debian -> alpine
  - [x] change python slim ver
 
