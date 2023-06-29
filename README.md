@@ -22,7 +22,7 @@
 >> Dood 방식으로 Container를 제작 하여도 Container 는 Docker 명령어를 알지 못한다. 따라서 추가적으로 이를 설치해주는 Dockerfile을 빌드한다
 
 
-#### > ToDo
+##### > ToDo
  - [x] change container os Debian -> alpine
 
 ---
@@ -42,13 +42,35 @@
 
 #### Jenkins Memory Issue
 > + Jenkins memory
+>> container 는 run 될때 default 로 pc의 메모리 전체를 할당 받는다. 뿐더러 , jenkins 는 별다른 설정이 없다면 jenkins의 권장사양인 16G 까지 메모리를 사용한다. 
+>> ondemand 방식인 aws 에서 사용하기 힘들기 때문에 jenkins의 실행 환경의 memory 를 제한해야한다.
+>> https://community.jenkins.io/t/high-memory-usage-jenkins-in-docker/4909
 >   + using Docker
     
     docke run --name {container_name} -m {meory_size} {image_name}
-    
 >   + install on Linux
     
     vi /etc/default/jenkins
     JAVA_ARGS="-Xmx1024m"
->> docker-compose 파일에서 
 
+
+>> ** 1gb ram이 할당되는 ec2 프리티어에서는 swap 메모리를 확장해주어야 한다.
+
+# 2. docker image build server
+#### ./server/Dockerfile.yml
+#### ./server/requirements.txt
+> WAS 를 Container 환경에서 실행시키기 위하여 Dockerfile 을 server Directory의 root path에 위치 시킨다.
+
+     docker build -t {image_name}:{tag} ./path/
+
+> 해당 Dockerfile 은 server폴더를 Docker Image 로 build 하고 Flask 서버를 실행시킨다.     
+
+##### > ToDo
+ - [x] change container os Debian -> alpine
+ - [x] change python slim ver
+
+ # 3. jenkins pipeline script
+>> ![screenshot2](https://openterprise.it/wp-content/uploads/2020/10/jenkins_pipeline.png)
+ 
+# 4. jenkins setting
+ 
