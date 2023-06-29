@@ -1,4 +1,6 @@
 # 0. Jenkins Image Build
+>><img width="920" alt="basic jenkins" src="https://github.com/yeongseoksong/jenkins/assets/76511428/19118b24-0a8d-4f70-a3a6-e49aca18aded">
+
 >linux 환경에서 jenkins 를 설치하는 방법은 다음과 같다.
 
 >> a. container
