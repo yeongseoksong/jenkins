@@ -1,0 +1,18 @@
+version: "3"
+services:
+  jenkins:
+    image: asdaafwe/jenkins_img:latest
+    user: root
+    volumes:
+      - ./var/jenkins_home:/var/jenkins_home
+      - ./var/run/docker.sock:/var/run/docker.sock  
+    
+    mem_limit: 1g
+    ports:
+      - 4001:8080
+      - 50000:50000
+
+
+
+    
+    
