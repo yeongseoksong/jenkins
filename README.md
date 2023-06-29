@@ -1,4 +1,4 @@
-# 0.  Jenkins Image Build
+# 0. Jenkins Image Build
 >linux 환경에서 jenkins 를 설치하는 방법은 다음과 같다.
 
 >> a. container
@@ -6,7 +6,7 @@
 >> b. jenkins install
 
   
-## Issue
+#### Issue
 > Docker 는 호스트 머신의 docker daemon 에의하여 실행된다.
 >>  ![screenshot2](https://github.com/yeongseoksong/jenkins/assets/76511428/2d6a2397-ee79-41a1-b836-a3958f8d5971)
 
@@ -16,18 +16,36 @@
     
     RUN groupadd -g {Gid} docker 
     RUN usermod -aG docker go 
-## ./jenkins/Dockerfile
+#### ./jenkins/Dockerfile
 > Jenkins Container 를 생성하기전에 이미지를 빌드한다
 > Jenkins Image 의 Lts 버전을 빌드 한후에 container 내부에  Docker 를 설치해준다.
 >> Dood 방식으로 Container를 제작 하여도 Container 는 Docker 명령어를 알지 못한다. 따라서 추가적으로 이를 설치해주는 Dockerfile을 빌드한다
 
 
-### > ToDo
+#### > ToDo
  - [x] change container os Debian -> alpine
 
 ---
 # 1. Jenkins Image push
-https://hub.docker.com/repository/docker/asdaafwe/jenkins_img/general
-## ./jenkins/dockdr-compse.yml
-> 
+>  서버에 적용하기 위하여 Docker Hub 에 0. 에서 생성한 이미지를 Push 한다
+>> https://hub.docker.com/repository/docker/asdaafwe/jenkins_img/general
+
+    docker image ls
+    docker login -u -p
+    docker push {docker_image_name}
+
+#### ./jenkins/docker-compse.yml
+> Docker Image 를 컨테이너로 실행할때 Option을 설정해둔 파일이다.
+> 여러 Container 를 연결시킬때 주로 사용된다.
+
+    docker-compose up ./path/
+
+#### Jenkins Memory Issue
+> + Jenkins memory
+>   + using Docker
+    docke run --name {container_name} -m {meory_size} {image_name}
+>   + install on Linux
+    vi /etc/default/jenkins
+    JAVA_ARGS="-Xmx1024m"
+>> docker-compose 파일에서 
 
