@@ -74,7 +74,8 @@
  - [x] change python slim ver
 
  # 3. jenkins pipeline script
->> ![screenshot2](https://openterprise.it/wp-content/uploads/2020/10/jenkins_pipeline.png)
+>> <img width="706" alt="result" src="https://github.com/yeongseoksong/jenkins/assets/76511428/430439ca-bf70-4bde-b491-083a1ee79821">
+
  
 # 4. jenkins setting
  
