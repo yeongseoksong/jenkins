@@ -43,8 +43,11 @@
 #### Jenkins Memory Issue
 > + Jenkins memory
 >   + using Docker
+    
     docke run --name {container_name} -m {meory_size} {image_name}
+    
 >   + install on Linux
+    
     vi /etc/default/jenkins
     JAVA_ARGS="-Xmx1024m"
 >> docker-compose 파일에서 
