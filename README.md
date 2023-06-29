@@ -16,13 +16,19 @@
 
 '''
     
-    RUN groupadd -g 499 docker //499를 docker로
+    RUN groupadd -g {Gid} docker 
     RUN usermod -aG docker go 
+--- 
+## ./jenkins/Dockerfile
+> Jenkins Container 를 생성하기전에 이미지를 빌드한다
+> Jenkins Image 의 Lts 버전을 빌드 한후에 container 내부에  Docker 를 설치해준다.
+>> Dood 방식으로 Container를 제작 하여도 Container 는 Docker 명령어를 알지 못한다. 따라서 추가적으로 이를 설치해주는 Dockerfile을 빌드한다
 
 
-## DinD
+### ToDo
+ - [ x ] change container os Debian -> alpine
+# 
+https://hub.docker.com/repository/docker/asdaafwe/jenkins_img/general
+## ./jenkins/dockdr-compse.yml
+> 
 
-    
-
-## 0.1 ./jenkins/Dockerfile
-  
