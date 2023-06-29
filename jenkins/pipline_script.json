@@ -1,17 +1,16 @@
 pipeline {
     environment {
-        // Docker Hub 인증 정보 설정a
-        dockerImage = 'attnk_t' 
-        dockerRegistry = 'hippotnc'
-        containerName='attnk_t_flask'
+        dockerImage = '' //docker hub repository name
+        dockerRegistry = '' //docker hub user name
+        containerName=''
     }
     agent any
     stages {
         stage('GIT CLONE') {
             steps {
-                git branch : 'dev',
-                credentialsId:'git',
-                url:' https://github.com/hippotnc-skku/AttnKare-T_Backend.git'
+                git branch : '', //branch to clone
+                credentialsId:'', // gen credential in jenkins
+                url: ''// Github Url
             }    
             post{
                 failure{
@@ -48,13 +47,14 @@ pipeline {
     
     stage('Run Docker Container') {
         steps {
-            sh 'docker run -d --name ${containerName} -p  4009:4009 ${dockerRegistry}/${dockerImage}:latest'
+            sh 'docker run -d --name ${containerName} -p  4009:4009 ${dockerRegistry}/${dockerImage}:latest' // write docker  run command  
         }
     }
         stage('Docker Image push') {
    
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
+                withCredentials([usernamePassword(credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
+                //get value by created credential  
                 {
                     sh 'docker login -u ${USERNAME} -p ${PASSWORD}'
                     sh 'docker push ${dockerRegistry}/${dockerImage}:latest'}
