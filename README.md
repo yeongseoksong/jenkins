@@ -1,7 +1,7 @@
 
 ## EXAMPLE
 >><img width="920" alt="basic jenkins" src="https://github.com/yeongseoksong/jenkins/assets/76511428/19118b24-0a8d-4f70-a3a6-e49aca18aded">
-<img width="870" alt="3" src="https://github.com/yeongseoksong/jenkins/assets/76511428/0852ed9c-9008-453f-8521-da9bda7905f0">
+>><img width="870" alt="3" src="https://github.com/yeongseoksong/jenkins/assets/76511428/0852ed9c-9008-453f-8521-da9bda7905f0">
 
 
 # 0. Jenkins Image Build
